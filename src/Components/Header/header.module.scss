@@ -1,0 +1,21 @@
+.header {
+    &__body {
+        max-width: 880px;
+        margin: 30px auto 0;
+        padding: 0 15px;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__links {
+        display: flex;
+    }
+
+    .namePage {
+        font-size: 36px;
+        line-height: 100%;
+        font-weight: 700;
+    }
+}

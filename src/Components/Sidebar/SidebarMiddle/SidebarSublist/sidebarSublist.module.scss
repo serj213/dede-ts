@@ -1,0 +1,48 @@
+@import "../../../../assets/styles/vars.scss";
+
+.sublist {
+    padding-left: 32px;
+    padding-top: 15px;
+    li {
+        position: relative;
+        padding-left: 11px;
+        cursor: pointer;
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: $white;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            z-index: 1;
+            transition: background-color 0.2s linear;
+        }
+
+        span {
+            display: inline-block;
+            color: $white;
+            transition: color 0.2s linear;
+            font-size: 18px;
+            max-width: 75px;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                &::before {
+                    background-color: $orange;
+                }
+
+                span {
+                    color: $orange;
+                }
+            }
+        }
+    }
+}

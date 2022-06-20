@@ -1,0 +1,40 @@
+@import "../../../assets/styles/vars.scss";
+
+.item {
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    &__top {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        svg {
+            margin-right: 15px;
+            path {
+                fill: $white;
+                transition: fill 0.2s linear;
+            }
+        }
+
+        span {
+            font-size: 24px;
+            line-height: calc(27 / 24 * 100%);
+            color: $white;
+            transition: color 0.2s linear;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                svg {
+                    path {
+                        fill: $orange;
+                    }
+                }
+
+                span {
+                    color: $orange;
+                }
+            }
+        }
+    }
+}

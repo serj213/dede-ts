@@ -1,0 +1,66 @@
+@import "../../../assets/styles/vars.scss";
+
+.filters {
+    position: relative;
+
+    &__top {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        span {
+            color: $text;
+            transition: color 0.2s linear;
+        }
+
+        svg {
+            position: relative;
+            transform: rotate(180deg);
+            fill: $text;
+            top: 3px;
+            transition: fill 0.2s linear;
+        }
+    }
+
+    &__list {
+        position: absolute;
+        width: 150px;
+        min-height: 100px;
+        box-shadow: 0px 4px 10px rgba(161, 184, 191, 0.25);
+        border-radius: 10px;
+        padding: 13px;
+        top: 150%;
+        left: 0;
+
+        li {
+            color: $text;
+            transition: color 0.2s linear;
+            cursor: pointer;
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $orange;
+                }
+            }
+        }
+
+        li.active {
+            color: $orange;
+        }
+    }
+}
+
+.filtersActive {
+    .filters {
+        &__top {
+            span {
+                color: $orange;
+            }
+            svg {
+                transform: rotate(0);
+                path {
+                    fill: $orange;
+                }
+            }
+        }
+    }
+}
