@@ -82,4 +82,5 @@ body {
   font-size: 18px;
   line-height: calc(21 / 18 * 100%);
   color: #000;
+  background-color: #f9f9f9;
 }

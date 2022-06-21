@@ -5,6 +5,8 @@ import HeaderSearch from './HeaderSearch/HeaderSearch';
 
 import styles from './header.module.scss';
 
+import userImg from '../../assets/images/header/user.png';
+
 const Header: React.FC = () => {
   return (
     <header className={styles.header}>
@@ -19,6 +21,7 @@ const Header: React.FC = () => {
 
         <div className={styles.header__right}>
           <HeaderSearch />
+          <img className={styles.user} src={userImg} alt="" />
         </div>
       </div>
     </header>
