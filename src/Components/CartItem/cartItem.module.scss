@@ -1,0 +1,48 @@
+@import "../../assets/styles/vars.scss";
+
+.cart {
+    border: 1px solid red;
+    border-radius: 30px;
+    min-height: 335px;
+    display: flex;
+    flex-direction: column;
+
+    &__top {
+        position: relative;
+        width: 100%;
+        height: 120px;
+        margin-bottom: 10px;
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+    }
+
+    &__content {
+        padding: 0 28px 20px;
+        color: $text;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+
+        textarea {
+            width: 100%;
+            margin: 0 0 17px;
+            background-color: transparent;
+            resize: none;
+            font-size: 18px;
+            line-height: 110%;
+            color: $text;
+        }
+    }
+
+    &__title {
+        max-width: 185px;
+        margin: 0 0 10px;
+    }
+}
