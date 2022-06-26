@@ -5,16 +5,17 @@ import TextareaAutosize from 'react-textarea-autosize';
 import CartState from './СartState/СartState';
 import PopupEdit from '../popupEdit/PopupEdit';
 
+import { cartType } from '../../types/CartType';
+
 import styles from './cartItem.module.scss';
 
-import img from '../../assets/images/cartItem/img.png';
 import importantImg from '../../assets/images/cartItem/important.svg';
 import ActiveimportantImg from '../../assets/images/cartItem//important-active.svg';
 import editImg from '../../assets/images/cartItem/edit.svg';
 
-const CartItem: React.FC = () => {
-  const [taskValue, setTaskValue] = React.useState('');
-  const [importantActive, setImportantActive] = React.useState(false);
+const CartItem: React.FC<cartType> = ({ img, name, text, stateTask, addedImportant }) => {
+  const [taskValue, setTaskValue] = React.useState(text);
+  const [importantActive, setImportantActive] = React.useState(addedImportant);
   const [visiblePopupEdit, setVisiblePopupEdit] = React.useState(false);
 
   const changeTaskValue = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -42,13 +43,13 @@ const CartItem: React.FC = () => {
         <img src={img} alt="" />
       </div>
       <div className={styles.cart__content}>
-        <h5 className={styles.cart__title}>Какая то задача</h5>
+        <h5 className={styles.cart__title}>{name}</h5>
         <TextareaAutosize
           placeholder="опиши свою задачу"
           value={taskValue}
           onChange={(e) => changeTaskValue(e)}
         />
-        <CartState />
+        <CartState stateTask={stateTask} />
       </div>
     </div>
   );

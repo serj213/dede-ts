@@ -2,8 +2,12 @@ import React from 'react';
 
 import styles from './cartState.module.scss';
 
-const СartState = () => {
-  const [activeState, setActiveState] = React.useState(0);
+interface СartStateProp {
+  stateTask: number;
+}
+
+const СartState: React.FC<СartStateProp> = ({ stateTask }) => {
+  const [activeState, setActiveState] = React.useState(stateTask);
   const [visibleStates, setVisibleStates] = React.useState(false);
 
   const stateCart = [
