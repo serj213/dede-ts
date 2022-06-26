@@ -3,20 +3,41 @@ import React, { ChangeEvent } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
 import CartState from './СartState/СartState';
+import PopupEdit from '../popupEdit/PopupEdit';
 
 import styles from './cartItem.module.scss';
 
 import img from '../../assets/images/cartItem/img.png';
+import importantImg from '../../assets/images/cartItem/important.svg';
+import ActiveimportantImg from '../../assets/images/cartItem//important-active.svg';
+import editImg from '../../assets/images/cartItem/edit.svg';
 
 const CartItem: React.FC = () => {
   const [taskValue, setTaskValue] = React.useState('');
+  const [importantActive, setImportantActive] = React.useState(false);
+  const [visiblePopupEdit, setVisiblePopupEdit] = React.useState(false);
 
   const changeTaskValue = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setTaskValue(e.target.value);
   };
 
+  const changeImportantHandler = () => {
+    setImportantActive(!importantActive);
+  };
+
+  const openPopupEdit = () => {
+    setVisiblePopupEdit(!visiblePopupEdit);
+  };
+
   return (
     <div className={styles.cart}>
+      <button onClick={changeImportantHandler} className={styles.cart__important}>
+        <img src={importantActive ? ActiveimportantImg : importantImg} alt="" />
+      </button>
+      <button className={styles.cart__edit}>
+        <img onClick={openPopupEdit} src={editImg} alt="" />
+        {visiblePopupEdit && <PopupEdit />}
+      </button>
       <div className={styles.cart__top}>
         <img src={img} alt="" />
       </div>

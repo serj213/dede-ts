@@ -1,11 +1,12 @@
 @import "../../assets/styles/vars.scss";
 
 .cart {
-    border: 1px solid red;
+    position: relative;
     border-radius: 30px;
     min-height: 335px;
     display: flex;
     flex-direction: column;
+    background-color: $white;
 
     &__top {
         position: relative;
@@ -44,5 +45,22 @@
     &__title {
         max-width: 185px;
         margin: 0 0 10px;
+    }
+
+    &__important {
+        position: absolute;
+        display: inline-block;
+        left: 15px;
+        top: 15px;
+        background-color: transparent;
+        z-index: 3;
+    }
+
+    &__edit {
+        position: absolute;
+        right: 28px;
+        top: 21px;
+        background-color: transparent;
+        z-index: 3;
     }
 }
